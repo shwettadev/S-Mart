@@ -30,7 +30,7 @@ public class InventoryService {
         i1.setName("Mother Dairy Fresh Cow Milk");
         i1.setCategory("Dairy");
         i1.setId(1);
-        i1.setPrice(28);
+        i1.setPrice(29);
         i1.setImgSrc("https://bl-i.thgim.com/public/incoming/q80t0j/article67744653.ece/alternates/FREE_1200/WhatsApp%20Image%202024-01-16%20at%202.43.13%20PM.jpeg");
         itemList.add(i1);
 
@@ -38,7 +38,7 @@ public class InventoryService {
         i2.setName("Amul Milk");
         i2.setCategory("Dairy");
         i2.setId(2);
-        i2.setPrice(30);
+        i2.setPrice(31);
         i2.setImgSrc("https://www.sudamadairy.com/wp-content/uploads/2023/09/Amul_buffalo_milk-1.jpg");
         itemList.add(i2);
     }
