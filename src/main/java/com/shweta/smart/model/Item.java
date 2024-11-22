@@ -11,5 +11,4 @@ public class Item {
     private Integer price;
     private Integer id;
     private String imgSrc;
-    private Integer quantity;
 }

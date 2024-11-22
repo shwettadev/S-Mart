@@ -1,16 +1,33 @@
 package com.shweta.smart.inventory;
 
 import com.shweta.smart.model.Item;
+import com.shweta.smart.model.Product;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class InventoryService {
     private static List<Item> itemList = new ArrayList<>();
 
+    public static Map<Item, Integer> getItemStock() {
+        return itemStock;
+    }
+
+    private static Map<Item, Integer> itemStock = new HashMap<>();
+
     static {
         createItems(itemList);
+        initializeStock();
+    }
+
+    private static void initializeStock() {
+        itemList.forEach(item -> {
+            itemStock.put(item, (int) (Math.random() * 10));
+        });
     }
 
     private static void createItems(List<Item> itemList) {
@@ -19,8 +36,7 @@ public class InventoryService {
         i1.setCategory("Dairy");
         i1.setId(1);
         i1.setPrice(29);
-        i1.setQuantity((int) (Math.random()*10));
-        i1.setImgSrc("https://bl-i.thgim.com/public/incoming/q80t0j/article67744653.ece/alternates/FREE_1200/WhatsApp%20Image%202024-01-16%20at%202.43.13%20PM.jpeg");
+        i1.setImgSrc("https://tinyurl.com/2r96582z");
         itemList.add(i1);
 
         Item i2 = new Item();
@@ -28,13 +44,25 @@ public class InventoryService {
         i2.setCategory("Dairy");
         i2.setId(2);
         i2.setPrice(31);
-        i2.setQuantity((int) (Math.random()*10));
-        i2.setImgSrc("https://www.sudamadairy.com/wp-content/uploads/2023/09/Amul_buffalo_milk-1.jpg");
+        i2.setImgSrc("https://tinyurl.com/mu95397j");
         itemList.add(i2);
     }
 
-    public List<Item> getItemsList() {
-        return itemList;
+    public List<Product> getItemAndStock() {
+        List<Product> productList = new ArrayList<>();
+        for (Map.Entry<Item, Integer> entry : getItemStock().entrySet()) {
+            Product product = new Product();
+            Item item = entry.getKey();
+            int quantity = entry.getValue();
+            product.setId(item.getId());
+            product.setName(item.getName());
+            product.setPrice(item.getPrice());
+            product.setCategory(item.getCategory());
+            product.setImgSrc(item.getImgSrc());
+            product.setQuantity(quantity);
+            productList.add(product);
+        }
+        return productList;
     }
 
     public boolean inStock(Integer id) {
@@ -42,35 +70,20 @@ public class InventoryService {
     }
 
     public Item getItem(Integer id) {
-        Item item = getItemsList().stream().filter(i -> i.getId() == id).findFirst().get();
-        if(Objects.equals(item.getId(), id)){
-            return item;
+        for (Item item : itemList) {
+            if (item.getId() == id) {
+                return item;
+            }
         }
         return null;
     }
 
     public void reduceStock(Integer id) {
-        for (Item item : itemList) {
-            if (item.getId().equals(id)) {
-                int quantity = item.getQuantity() - 1;
-                item.setQuantity(quantity);
-                break;
-            }
-        }
+        Integer existingStock = itemStock.get(getItem(id));
+        itemStock.put(getItem(id), existingStock - 1);
     }
 
     public Integer getStockById(Integer id) {
-        for(Item item : itemList){
-            if(Objects.equals(item.getId(), id)){
-                return item.getQuantity();
-            }
-        }
-        return 0;
-    }
-
-    public Item fetchItem(Integer id) {
-        Item item = this.getItem(id);
-        this.reduceStock(id);
-        return item;
+        return itemStock.get(getItem(id));
     }
 }
