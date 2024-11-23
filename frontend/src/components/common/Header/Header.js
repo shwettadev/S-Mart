@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -9,9 +9,23 @@ import {
 } from "react-bootstrap";
 import { FaShoppingCart, FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Cart from "../Cart";
 
 function Header() {
   const navigate = useNavigate(); // Ensure you are using parentheses to invoke the hook
+  const dialogRef = React.useRef();
+  const [isPanel ,setIsPanel] = useState(false)
+
+  const openPanel = () => {
+    dialogRef.current?.showModal();
+    setIsPanel(true)
+  };
+
+
+  const closePanel = () => {
+   dialogRef.current?.close();
+   setIsPanel(false)
+  };
 
   const handleCart = () => {
     console.log("Navigating to /cart"); // Debugging log
@@ -55,8 +69,8 @@ function Header() {
             as="a"
             className="d-flex align-items-center"
             onClick={(e) => {
-              e.preventDefault(); // Prevent default behavior of href=""
-              handleCart(); // Call navigation handler
+              e.preventDefault();
+              openPanel();
             }}
           >
             <FaShoppingCart /> <span className="ml-2">Cart</span>
@@ -70,7 +84,14 @@ function Header() {
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
+      {isPanel &&
+      <Cart
+      dialogRef = {dialogRef}
+      closePanel = {closePanel}
+      />}
     </Navbar>
+
+    
   );
 }
 

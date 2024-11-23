@@ -32,7 +32,7 @@ export default function Dashboard() {
   return (
     <>
       <Header />
-      <Card data={productList} addToCart={addToCart} />
+      <Card data={productList} addToCart={addToCart} stock />
     </>
   );
 }

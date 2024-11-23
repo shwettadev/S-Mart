@@ -44,7 +44,7 @@ public class InventoryService {
         i2.setCategory("Dairy");
         i2.setId(2);
         i2.setPrice(31);
-        i2.setImgSrc("https://tinyurl.com/mu95397j");
+        i2.setImgSrc("https://shorturl.at/Z3vRd");
         itemList.add(i2);
     }
 
