@@ -28,14 +28,8 @@ function Header() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="me-auto">
           <NavDropdown title="Categories" id="basic-nav-dropdown">
-            <NavDropdown.Item onClick={() => navigate("/category/men")}>
-              Snacks
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={() => navigate("/category/women")}>
+            <NavDropdown.Item onClick={() => navigate("/dairy")}>
               Dairy
-            </NavDropdown.Item>
-            <NavDropdown.Item onClick={() => navigate("/category/kids")}>
-              Vegetables
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
