@@ -27,7 +27,8 @@ import {
   Tooltip,
   Menu,
   MenuItem,
-  Divider
+  Divider,
+  Snackbar
 } from '@mui/material';
 import {
   Add as AddIcon,
@@ -57,10 +58,13 @@ export default function Admin() {
     authorName: '',
     authorEmail: '',
     publisherName: '',
-    publisherAddress: ''
+    publisherAddress: '',
+    stock: ''
   });
   const [submitLoading, setSubmitLoading] = useState(false);
   const [username, setUsername] = useState('Admin');
+  const [successMessage, setSuccessMessage] = useState('');
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate();
 
   // Predefined categories for dropdown
@@ -132,7 +136,8 @@ export default function Admin() {
         authorName: book.author?.name || '',
         authorEmail: book.author?.emailId || '',
         publisherName: book.publisher?.name || '',
-        publisherAddress: book.publisher?.address || ''
+        publisherAddress: book.publisher?.address || '',
+        stock: book.stock?.toString() || ''
       });
     } else {
       setEditingBook(null);
@@ -144,7 +149,8 @@ export default function Admin() {
         authorName: '',
         authorEmail: '',
         publisherName: '',
-        publisherAddress: ''
+        publisherAddress: '',
+        stock: ''
       });
     }
     setOpenDialog(true);
@@ -161,7 +167,8 @@ export default function Admin() {
       authorName: '',
       authorEmail: '',
       publisherName: '',
-      publisherAddress: ''
+      publisherAddress: '',
+      stock: ''
     });
   };
 
@@ -194,7 +201,8 @@ export default function Admin() {
         publisher: {
           name: formData.publisherName,
           address: formData.publisherAddress
-        }
+        },
+        stock: formData.stock ? parseInt(formData.stock) : 0
       };
 
       if (editingBook) {
@@ -216,6 +224,9 @@ export default function Admin() {
           book.isbn === editingBook.isbn ? updatedBook : book
         );
         setBooks(updatedBooks);
+        
+        // Show success message for update
+        setSuccessMessage(`Book "${updatedBook.name}" has been successfully updated`);
       } else {
         // Add new book
         const response = await fetch('http://localhost:8080/store/book/add', {
@@ -235,10 +246,19 @@ export default function Admin() {
 
         const newBook = await response.json();
         setBooks([...books, newBook]);
+        
+        // Show success message with backend response
+        setSuccessMessage(`Book "${newBook.name}" has been successfully added with ISBN: ${newBook.isbn}`);
       }
 
+      setShowSuccessMessage(true);
       handleCloseDialog();
       setError(null);
+      
+      // Refresh the book list to ensure it's up to date
+      setTimeout(() => {
+        fetchBooks();
+      }, 500);
     } catch (err) {
       console.error('Error saving book:', err);
       setError(err.message || 'Failed to save book. Please try again.');
@@ -364,7 +384,7 @@ export default function Admin() {
             <Grid item xs={12} md={3}>
               <Paper sx={{ p: 3, textAlign: 'center', borderRadius: 2, background: 'linear-gradient(135deg, #7b1fa2 0%, #9c27b0 100%)', color: 'white' }}>
                 <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 1 }}>
-                  ${books.reduce((total, book) => total + (book.price || 0), 0).toFixed(2)}
+                  ₹{books.reduce((total, book) => total + (book.price || 0), 0).toFixed(2)}
                 </Typography>
                 <Typography variant="body1">
                   Total Value
@@ -400,6 +420,7 @@ export default function Admin() {
                     <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Author</TableCell>
                     <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Category</TableCell>
                     <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Price</TableCell>
+                    <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Stock</TableCell>
                     <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Publisher</TableCell>
                     <TableCell sx={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Actions</TableCell>
                   </TableRow>
@@ -447,7 +468,16 @@ export default function Admin() {
                       </TableCell>
                       <TableCell>
                         <Typography sx={{ color: '#2e7d32', fontWeight: 600, fontSize: '1rem' }}>
-                          ${book.price}
+                          ₹{book.price}
+                        </Typography>
+                      </TableCell>
+                      <TableCell>
+                        <Typography sx={{ 
+                          color: book.stock > 0 ? '#2e7d32' : '#d32f2f', 
+                          fontWeight: 600, 
+                          fontSize: '1rem' 
+                        }}>
+                          {book.stock || 0}
                         </Typography>
                       </TableCell>
                       <TableCell>
@@ -566,6 +596,17 @@ export default function Admin() {
               <Grid item xs={12} md={6}>
                 <TextField
                   fullWidth
+                  label="Stock Quantity"
+                  type="number"
+                  value={formData.stock}
+                  onChange={handleInputChange('stock')}
+                  inputProps={{ min: "0" }}
+                  helperText="Leave empty or 0 for out of stock"
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
                   select
                   label="Category"
                   value={formData.category}
@@ -631,6 +672,22 @@ export default function Admin() {
             </Button>
           </DialogActions>
         </Dialog>
+
+        {/* Success Message Snackbar */}
+        <Snackbar
+          open={showSuccessMessage}
+          autoHideDuration={6000}
+          onClose={() => setShowSuccessMessage(false)}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+        >
+          <Alert
+            onClose={() => setShowSuccessMessage(false)}
+            severity="success"
+            sx={{ width: '100%' }}
+          >
+            {successMessage}
+          </Alert>
+        </Snackbar>
       </Container>
     </Box>
   );

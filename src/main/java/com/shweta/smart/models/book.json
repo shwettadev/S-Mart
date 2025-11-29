@@ -4,180 +4,224 @@
     "name": "Effective Java",
     "price": 54.99,
     "author": {
-      "firstName": "Joshua",
-      "lastName": "Bloch"
+      "name": "Joshua Bloch",
+      "emailId": "j.bloch@example.com"
     },
     "publisher": {
-      "name": "Addison-Wesley Professional"
-    }
+      "name": "Addison-Wesley Professional",
+      "address": "Boston, MA"
+    },
+    "category": "Java",
+    "stock": 12
   },
   {
     "isbn": "978-0596517748",
     "name": "JavaScript: The Good Parts",
     "price": 32.49,
     "author": {
-      "firstName": "Douglas",
-      "lastName": "Crockford"
+      "name": "Douglas Crockford",
+      "emailId": "d.crockford@example.com"
     },
     "publisher": {
-      "name": "O'Reilly Media"
-    }
+      "name": "O'Reilly Media",
+      "address": "Sebastopol, CA"
+    },
+    "category": "JavaScript",
+    "stock": 8
   },
   {
     "isbn": "978-0321356680",
     "name": "Effective C++",
     "price": 49.95,
     "author": {
-      "firstName": "Scott",
-      "lastName": "Meyers"
+      "name": "Scott Meyers",
+      "emailId": "s.meyers@example.com"
     },
     "publisher": {
-      "name": "Addison-Wesley Professional"
-    }
+      "name": "Addison-Wesley Professional",
+      "address": "Boston, MA"
+    },
+    "category": "C++",
+    "stock": 5
   },
   {
     "isbn": "978-0135957059",
     "name": "The Pragmatic Programmer",
     "price": 41.99,
     "author": {
-      "firstName": "David",
-      "lastName": "Thomas"
+      "name": "David Thomas",
+      "emailId": "d.thomas@example.com"
     },
     "publisher": {
-      "name": "Addison-Wesley Professional"
-    }
+      "name": "Addison-Wesley Professional",
+      "address": "Boston, MA"
+    },
+    "category": "Software Engineering",
+    "stock": 10
   },
   {
     "isbn": "978-0596009205",
     "name": "Head First Design Patterns",
     "price": 47.99,
     "author": {
-      "firstName": "Eric",
-      "lastName": "Freeman"
+      "name": "Eric Freeman",
+      "emailId": "e.freeman@example.com"
     },
     "publisher": {
-      "name": "O'Reilly Media"
-    }
+      "name": "O'Reilly Media",
+      "address": "Sebastopol, CA"
+    },
+    "category": "Design Patterns",
+    "stock": 6
   },
   {
     "isbn": "978-0132350884",
     "name": "Clean Code",
     "price": 44.99,
     "author": {
-      "firstName": "Robert",
-      "lastName": "Martin"
+      "name": "Robert Martin",
+      "emailId": "r.martin@example.com"
     },
     "publisher": {
-      "name": "Prentice Hall"
-    }
+      "name": "Prentice Hall",
+      "address": "Upper Saddle River, NJ"
+    },
+    "category": "Software Engineering",
+    "stock": 7
   },
   {
     "isbn": "978-0321125215",
     "name": "Domain-Driven Design",
     "price": 59.99,
     "author": {
-      "firstName": "Eric",
-      "lastName": "Evans"
+      "name": "Eric Evans",
+      "emailId": "e.evans@example.com"
     },
     "publisher": {
-      "name": "Addison-Wesley Professional"
-    }
+      "name": "Addison-Wesley Professional",
+      "address": "Boston, MA"
+    },
+    "category": "Architecture",
+    "stock": 4
   },
   {
     "isbn": "978-0201633610",
-    "name": "Design Patterns",
+    "name": "Design Patterns: Elements of Reusable Object-Oriented Software",
     "price": 64.99,
     "author": {
-      "firstName": "Erich",
-      "lastName": "Gamma"
+      "name": "Erich Gamma",
+      "emailId": "e.gamma@example.com"
     },
     "publisher": {
-      "name": "Addison-Wesley Professional"
-    }
+      "name": "Addison-Wesley Professional",
+      "address": "Boston, MA"
+    },
+    "category": "Design Patterns",
+    "stock": 3
   },
   {
     "isbn": "978-0134494166",
     "name": "Clean Architecture",
     "price": 38.99,
     "author": {
-      "firstName": "Robert",
-      "lastName": "Martin"
+      "name": "Robert Martin",
+      "emailId": "r.martin@example.com"
     },
     "publisher": {
-      "name": "Prentice Hall"
-    }
+      "name": "Prentice Hall",
+      "address": "Upper Saddle River, NJ"
+    },
+    "category": "Architecture",
+    "stock": 9
   },
   {
     "isbn": "978-0596516178",
     "name": "RESTful Web Services",
     "price": 39.99,
     "author": {
-      "firstName": "Leonard",
-      "lastName": "Richardson"
+      "name": "Leonard Richardson",
+      "emailId": "l.richardson@example.com"
     },
     "publisher": {
-      "name": "O'Reilly Media"
-    }
+      "name": "O'Reilly Media",
+      "address": "Sebastopol, CA"
+    },
+    "category": "Web",
+    "stock": 11
   },
   {
     "isbn": "978-1449355739",
     "name": "Learning React",
     "price": 44.99,
     "author": {
-      "firstName": "Alex",
-      "lastName": "Banks"
+      "name": "Alex Banks",
+      "emailId": "a.banks@example.com"
     },
     "publisher": {
-      "name": "O'Reilly Media"
-    }
+      "name": "O'Reilly Media",
+      "address": "Sebastopol, CA"
+    },
+    "category": "JavaScript",
+    "stock": 14
   },
   {
     "isbn": "978-1617294136",
     "name": "Spring Boot in Action",
     "price": 49.99,
     "author": {
-      "firstName": "Craig",
-      "lastName": "Walls"
+      "name": "Craig Walls",
+      "emailId": "c.walls@example.com"
     },
     "publisher": {
-      "name": "Manning Publications"
-    }
+      "name": "Manning Publications",
+      "address": "Shelter Island, NY"
+    },
+    "category": "Spring",
+    "stock": 2
   },
   {
     "isbn": "978-0134052281",
     "name": "Java: The Complete Reference",
     "price": 55.99,
     "author": {
-      "firstName": "Herbert",
-      "lastName": "Schildt"
+      "name": "Herbert Schildt",
+      "emailId": "h.schildt@example.com"
     },
     "publisher": {
-      "name": "Oracle Press"
-    }
+      "name": "Oracle Press",
+      "address": "Redwood City, CA"
+    },
+    "category": "Java",
+    "stock": 13
   },
   {
     "isbn": "978-1491950296",
     "name": "Building Microservices",
     "price": 42.99,
     "author": {
-      "firstName": "Sam",
-      "lastName": "Newman"
+      "name": "Sam Newman",
+      "emailId": "s.newman@example.com"
     },
     "publisher": {
-      "name": "O'Reilly Media"
-    }
+      "name": "O'Reilly Media",
+      "address": "Sebastopol, CA"
+    },
+    "category": "Microservices",
+    "stock": 6
   },
   {
     "isbn": "978-0321200686",
     "name": "Refactoring",
     "price": 54.99,
     "author": {
-      "firstName": "Martin",
-      "lastName": "Fowler"
+      "name": "Martin Fowler",
+      "emailId": "m.fowler@example.com"
     },
     "publisher": {
-      "name": "Addison-Wesley Professional"
-    }
+      "name": "Addison-Wesley Professional",
+      "address": "Boston, MA"
+    },
+    "category": "Software Engineering",
+    "stock": 7
   }
 ]
-

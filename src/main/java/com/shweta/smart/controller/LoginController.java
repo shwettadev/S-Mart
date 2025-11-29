@@ -41,6 +41,7 @@ public class LoginController {
             logger.info("Login attempt for username: {} is success", loginRequest.getUsername());
             return ResponseEntity.ok().body(true);
         } else {
+            logger.error("user {} not found",loginRequest.getUsername());
             return ResponseEntity.status(401).body("Invalid credentials");
         }
     }

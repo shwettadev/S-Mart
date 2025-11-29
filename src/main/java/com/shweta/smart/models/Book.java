@@ -1,16 +1,20 @@
 package com.shweta.smart.models;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
+@Document(collection = "books_collection")
 public class Book {
+    @Id
     private String isbn;
     private String name;
     private Double price;
     private Publisher publisher;
     private Author author;
     private String category;
-
+    private Integer stock;
     // Default constructor for Jackson
     public Book() {}
 
@@ -21,6 +25,7 @@ public class Book {
         this.author = builder.author;
         this.publisher = builder.publisher;
         this.category = builder.category;
+        this.stock = builder.stock;
     }
 
     // Explicit setters to ensure they work with updates
@@ -48,6 +53,8 @@ public class Book {
         this.category = category;
     }
 
+    public void setStock(Integer stock) {this.stock = stock;}
+
     public static class BookBuilder {
         public String category;
         private String isbn;
@@ -55,12 +62,14 @@ public class Book {
         private Double price;
         private Publisher publisher;
         private Author author;
+        private Integer stock;
 
-        public BookBuilder(String isbn, String name, Double price,String category) {
+        public BookBuilder(String isbn, String name, Double price,String category, Integer stock) {
             this.isbn = isbn;
             this.name = name;
             this.price = price;
             this.category = category;
+            this.stock = stock;
         }
 
         public BookBuilder withPublisher(Publisher publisher) {
