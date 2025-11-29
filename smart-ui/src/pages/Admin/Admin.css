@@ -1,0 +1,51 @@
+/* Admin page specific styles */
+.admin-container {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.admin-table-container {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.admin-fab {
+  background: linear-gradient(45deg, #1976d2 30%, #42a5f5 90%);
+  box-shadow: 0 3px 5px 2px rgba(25, 118, 210, 0.3);
+}
+
+.admin-fab:hover {
+  background: linear-gradient(45deg, #1565c0 30%, #1e88e5 90%);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+.admin-dialog {
+  border-radius: 16px;
+}
+
+.admin-table-header {
+  background: linear-gradient(45deg, #f5f5f5 30%, #e3f2fd 90%);
+  font-weight: 600;
+}
+
+.book-row:hover {
+  background-color: rgba(25, 118, 210, 0.04);
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+.admin-stats-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(25, 118, 210, 0.1);
+}
+
+.action-button {
+  transition: all 0.2s ease;
+}
+
+.action-button:hover {
+  transform: scale(1.1);
+}

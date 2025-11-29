@@ -1,0 +1,183 @@
+[
+  {
+    "isbn": "978-0134685991",
+    "name": "Effective Java",
+    "price": 54.99,
+    "author": {
+      "firstName": "Joshua",
+      "lastName": "Bloch"
+    },
+    "publisher": {
+      "name": "Addison-Wesley Professional"
+    }
+  },
+  {
+    "isbn": "978-0596517748",
+    "name": "JavaScript: The Good Parts",
+    "price": 32.49,
+    "author": {
+      "firstName": "Douglas",
+      "lastName": "Crockford"
+    },
+    "publisher": {
+      "name": "O'Reilly Media"
+    }
+  },
+  {
+    "isbn": "978-0321356680",
+    "name": "Effective C++",
+    "price": 49.95,
+    "author": {
+      "firstName": "Scott",
+      "lastName": "Meyers"
+    },
+    "publisher": {
+      "name": "Addison-Wesley Professional"
+    }
+  },
+  {
+    "isbn": "978-0135957059",
+    "name": "The Pragmatic Programmer",
+    "price": 41.99,
+    "author": {
+      "firstName": "David",
+      "lastName": "Thomas"
+    },
+    "publisher": {
+      "name": "Addison-Wesley Professional"
+    }
+  },
+  {
+    "isbn": "978-0596009205",
+    "name": "Head First Design Patterns",
+    "price": 47.99,
+    "author": {
+      "firstName": "Eric",
+      "lastName": "Freeman"
+    },
+    "publisher": {
+      "name": "O'Reilly Media"
+    }
+  },
+  {
+    "isbn": "978-0132350884",
+    "name": "Clean Code",
+    "price": 44.99,
+    "author": {
+      "firstName": "Robert",
+      "lastName": "Martin"
+    },
+    "publisher": {
+      "name": "Prentice Hall"
+    }
+  },
+  {
+    "isbn": "978-0321125215",
+    "name": "Domain-Driven Design",
+    "price": 59.99,
+    "author": {
+      "firstName": "Eric",
+      "lastName": "Evans"
+    },
+    "publisher": {
+      "name": "Addison-Wesley Professional"
+    }
+  },
+  {
+    "isbn": "978-0201633610",
+    "name": "Design Patterns",
+    "price": 64.99,
+    "author": {
+      "firstName": "Erich",
+      "lastName": "Gamma"
+    },
+    "publisher": {
+      "name": "Addison-Wesley Professional"
+    }
+  },
+  {
+    "isbn": "978-0134494166",
+    "name": "Clean Architecture",
+    "price": 38.99,
+    "author": {
+      "firstName": "Robert",
+      "lastName": "Martin"
+    },
+    "publisher": {
+      "name": "Prentice Hall"
+    }
+  },
+  {
+    "isbn": "978-0596516178",
+    "name": "RESTful Web Services",
+    "price": 39.99,
+    "author": {
+      "firstName": "Leonard",
+      "lastName": "Richardson"
+    },
+    "publisher": {
+      "name": "O'Reilly Media"
+    }
+  },
+  {
+    "isbn": "978-1449355739",
+    "name": "Learning React",
+    "price": 44.99,
+    "author": {
+      "firstName": "Alex",
+      "lastName": "Banks"
+    },
+    "publisher": {
+      "name": "O'Reilly Media"
+    }
+  },
+  {
+    "isbn": "978-1617294136",
+    "name": "Spring Boot in Action",
+    "price": 49.99,
+    "author": {
+      "firstName": "Craig",
+      "lastName": "Walls"
+    },
+    "publisher": {
+      "name": "Manning Publications"
+    }
+  },
+  {
+    "isbn": "978-0134052281",
+    "name": "Java: The Complete Reference",
+    "price": 55.99,
+    "author": {
+      "firstName": "Herbert",
+      "lastName": "Schildt"
+    },
+    "publisher": {
+      "name": "Oracle Press"
+    }
+  },
+  {
+    "isbn": "978-1491950296",
+    "name": "Building Microservices",
+    "price": 42.99,
+    "author": {
+      "firstName": "Sam",
+      "lastName": "Newman"
+    },
+    "publisher": {
+      "name": "O'Reilly Media"
+    }
+  },
+  {
+    "isbn": "978-0321200686",
+    "name": "Refactoring",
+    "price": 54.99,
+    "author": {
+      "firstName": "Martin",
+      "lastName": "Fowler"
+    },
+    "publisher": {
+      "name": "Addison-Wesley Professional"
+    }
+  }
+]
+

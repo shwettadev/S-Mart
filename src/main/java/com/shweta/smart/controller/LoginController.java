@@ -2,6 +2,7 @@ package com.shweta.smart.controller;
 
 import com.shweta.smart.models.LoginDetails;
 import com.shweta.smart.models.LoginRequest;
+import com.shweta.smart.models.SignUpRequest;
 import com.shweta.smart.service.LoginService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -36,9 +37,8 @@ public class LoginController {
     })
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest) {
-        logger.info("Login attempt for username: {}", loginRequest.getUsername());
-
         if (loginService.validateLogin(loginRequest)) {
+            logger.info("Login attempt for username: {} is success", loginRequest.getUsername());
             return ResponseEntity.ok().body(true);
         } else {
             return ResponseEntity.status(401).body("Invalid credentials");
@@ -54,12 +54,12 @@ public class LoginController {
             @ApiResponse(responseCode = "400",
                     description = "Username already exists")
     })
-    @PostMapping("/users")
-    public ResponseEntity<?> addUser(@RequestBody LoginRequest request) {
+    @PostMapping("/signup")
+    public ResponseEntity<String> registerUser(@RequestBody SignUpRequest request) {
         try {
-            LoginDetails newUser = loginService.addUser(request);
-            logger.info("New user created: {}", newUser.getUsername());
-            return ResponseEntity.ok(newUser);
+            String addedUsername = loginService.registerNewUser(request);
+            logger.info("New user created: {}", addedUsername);
+            return ResponseEntity.ok(String.format("New user created sucessfully with username: %s", addedUsername));
         } catch (IllegalArgumentException e) {
             logger.error("Failed to create user: {}", e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());

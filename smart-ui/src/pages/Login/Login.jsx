@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import {
   Box,
@@ -31,7 +31,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(import.meta.env.VITE_API_URL, {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/login`, {
         username: username,
         password: password
       }, {
@@ -42,7 +42,9 @@ function Login() {
       });
 
       if (response.data) {
-        navigate('/dashboard');
+        // Store username for dashboard access
+        localStorage.setItem('username', username);
+        navigate('/store');
       }
     } catch (err) {
       console.error('Login error:', err);
@@ -62,12 +64,12 @@ function Login() {
   return (
     <Box
       sx={{
-        minHeight: '100vh',
         width: '100%',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#ffffff',
+        py: 4,
+        flexGrow: 1,
       }}
     >
       <Container maxWidth="sm" sx={{ py: 4 }}>
@@ -159,7 +161,7 @@ function Login() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Sign In
+              Log In
             </Button>
           </Box>
         </Paper>
@@ -175,6 +177,7 @@ function Login() {
           {error}
         </Alert>
       </Snackbar>
+      
     </Box>
   );
 }
